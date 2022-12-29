@@ -1,0 +1,29 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+   Create new
+{% endblock %}
+
+{% block body %}
+   {% if edit %}
+        <h1>Edit: {{pageHead}}</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{form.pageHead}}<br>
+            <label for="Page text:">Page text:</label>
+            {{form.pageBody}}<br>
+            <button class="btn btn-success" type="submit">Page edit</button>
+        </form>
+   {% else %}
+        <h1>Create New Page</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="Page title:">Title:</label>
+            {{form.pageHead}}<br>
+            <label for="Page text:">Page text:</label>
+            {{form.pageBody}}<br>
+            <span>{{error}}</span><br>
+            <button class="btn btn-success" type="submit">Save</button>
+        </form>
+    {% endif %}
+{% endblock %}

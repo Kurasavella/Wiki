@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+   Serch
+{% endblock %}
+
+{% block body %}
+    <h1>Serch</h1>
+
+    <ul>
+        {% for page in pages %}
+            <a href="/wiki/{{page}}">
+            <li>{{page}}</li></a>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
